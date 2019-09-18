@@ -98,7 +98,7 @@ def main():
         if not os.path.exists(reference):
             print('Error: Fail to locate the reference file\n')
             sys.exit(2)
-        from ptt_packages import bwa, split_data, assemble
+        from hitac_packages import bwa, split_data, assemble
         bwa(read1, read2, reference, threads)
         split_data('filter.R1.fastq', 'filter.R2.fastq', tn5, output_file)
         assemble(types, kmer)
@@ -106,7 +106,7 @@ def main():
     from ptt_packages import select_contig
     select_contig()
 
-    print('\n\nPTT assembler finished!')
+    print('\n\nHiTAC assembler finished!')
 
 
 if __name__ == '__main__':
