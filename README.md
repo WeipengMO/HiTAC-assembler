@@ -7,9 +7,10 @@ HiTAC Assembler is a tool for processing HiTAC-seq data in FASTQ format, which c
 
 Additional tools required for running HiTAC Assembler include:
 
-* BWA
-* SAMtools
-* SPAdes
+* [BWA](http://bio-bwa.sourceforge.net/)
+* [SAMtools](http://www.htslib.org)
+* [SPAdes](http://cab.spbu.ru/software/spades/)
+* [Biopython](https://biopython.org/)
 
 ## Usage
 
