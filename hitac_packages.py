@@ -115,15 +115,15 @@ def assemble(types, kmer):
 def select_contig():
     import re
     g = (chr(i + 64) + str(j) for i in range(1, 9) for j in range(1, 13))
-    os.system('mkdir ptt_output')
-    output_file = open('ptt_output/ptt_output.fa', 'w')
+    os.system('mkdir hitac_output')
+    output_file = open('hitac_output/hitac_output.fa', 'w')
     for i in g:
         if os.path.exists(f'spades/{i}/scaffolds.fasta'):
-            os.system(f'cp spades/{i}/scaffolds.fasta ptt_output/{i}.fa')
+            os.system(f'cp spades/{i}/scaffolds.fasta hitac_output/{i}.fa')
             max_score = 0
             max_name = ''
             max_seq = ''
-            for seq in SeqIO.parse(f'ptt_output/{i}.fa', 'fasta'):
+            for seq in SeqIO.parse(f'hitac_output/{i}.fa', 'fasta'):
                 name = seq.id
                 seq = str(seq.seq)
                 num = re.findall(r'\d+\.?\d*', name)
@@ -135,4 +135,4 @@ def select_contig():
                 output_file.write(f'>{i} {max_name}\n{max_seq}\n')
     output_file.close()
     result_path = os.popen('pwd').readline()[:-1]
-    print(f'\n\nPTT-seq result are at: {result_path}/ptt_output/')
+    print(f'\n\nhitac result are at: {result_path}/hitac_output/')
