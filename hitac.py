@@ -5,7 +5,7 @@ import getopt, sys, os
 
 def usage():
     print('Usage:\n'
-          'ptt.py -t <type> -b <barcode> [options] -i <filename> -I <filename>\n\n'
+          'hitac.py -t <type> -b <barcode> [options] -i <filename> -I <filename>\n\n'
           'Input:\n'
           '-t\tInput data type (string). Type is one of:\n'
           '\t  dna - DNA fragments\n'
@@ -43,7 +43,7 @@ def main():
 
     for o, a in opts:
         if o == '-v':
-            print('PTT-seq v1.0.0')
+            print('hitac v1.0.0')
             sys.exit(0)
         elif o == '-h':
             usage()
@@ -82,7 +82,7 @@ def main():
         print('Error: Fail to locate the read2 file\n')
         sys.exit(2)
     if os.path.exists(barcode):
-        from ptt_packages import input_barcode
+        from hitac_packages import input_barcode
         tn5, output_file = {}, {}
         input_barcode(tn5, output_file, barcode)
     else:
@@ -90,7 +90,7 @@ def main():
         sys.exit(2)
 
     if types == 'dna':
-        from ptt_packages import split_data, trim_data, assemble
+        from hitac_packages import splhitac_packagesit_data, trim_data, assemble
         split_data(read1, read2, tn5, output_file)
         trim_data()
         assemble(types, kmer)
@@ -103,7 +103,7 @@ def main():
         split_data('filter.R1.fastq', 'filter.R2.fastq', tn5, output_file)
         assemble(types, kmer)
 
-    from ptt_packages import select_contig
+    from hitac_packages import select_contig
     select_contig()
 
     print('\n\nHiTAC assembler finished!')
