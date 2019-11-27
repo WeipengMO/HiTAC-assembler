@@ -18,7 +18,7 @@ Usage infor is as follows:
 
 ```
 Usage:
-HiTAC.py -t <type> -b <barcode> [options] -i <filename> -I <filename>
+hitac.py -t <type> -b <barcode> [options] -i <filename> -I <filename>
 
 Input:
 -t	Input data type (string). Type is one of:
@@ -41,11 +41,11 @@ Optional arguments:
 ### For plasmid data:
 
 ```bash
-HiTAC.py -t plasmid -b tn5_barcode.txt -i read1.fq -I read2.fq -r reference.fa
+hitac.py -t plasmid -b tn5_barcode.txt -i read1.fq -I read2.fq -r reference.fa
 ```
 
 ### For DNA fragment data:
 
 ```bash
-HiTAC.py -t dna -b tn5_barcode.txt -i read1.fq -I read2.fq
+hitac.py -t dna -b tn5_barcode.txt -i read1.fq -I read2.fq
 ```
